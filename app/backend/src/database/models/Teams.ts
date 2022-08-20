@@ -11,7 +11,6 @@ Teams.init({
   modelName: 'Teams',
   underscored: true,
   timestamps: false,
-
 });
 
 export default Teams;
