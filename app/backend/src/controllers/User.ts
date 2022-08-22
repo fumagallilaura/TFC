@@ -24,7 +24,7 @@ export default class UsersController {
   public static async validate(req: Request, res: Response) {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.status(401).json({
+    if (!authorization) return res.status(400).json({
       message: 'You must have a authorization'
     })
     const email = jwt.verify(authorization, JWT_SECRET)
