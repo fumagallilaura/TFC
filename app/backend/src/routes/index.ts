@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import login from './login';
-import teams from './team';
+import teams from './teams';
 import matches from './matches';
 
 const routes = Router();

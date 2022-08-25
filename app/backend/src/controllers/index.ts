@@ -1,2 +1,2 @@
-export { default as User } from './User';
-export { default as Team } from './Team';
+export { default as User } from './Login';
+export { default as Team } from './Teams';
