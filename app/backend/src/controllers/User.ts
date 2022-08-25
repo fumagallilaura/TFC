@@ -33,6 +33,6 @@ export default class UsersController {
     if (!user) {
       return res.status(401).json({ message: 'User dont exist' });
     }
-    res.status(200).json(user.role);
+    res.status(200).json({ role: user.role});
   }
 }
