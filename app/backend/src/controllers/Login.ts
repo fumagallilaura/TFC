@@ -5,7 +5,7 @@ import Users from '../database/models/Users';
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
-export default class UsersController {
+export default class LoginController {
   public static async login(req: Request, res: Response) {
     const { email, password } = req.body;
     if (!email || !password) {

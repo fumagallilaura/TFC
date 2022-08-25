@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcryptjs';
 import User from '../database/models/Users';
 
-export default class UserService {
+export default class LoginService {
   public static async login(email: string, password: string) {
     const user = await User.findOne({ where: { email } });
     if (!user) return null;

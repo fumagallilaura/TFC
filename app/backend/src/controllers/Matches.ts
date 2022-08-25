@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import MatchService from '../services/Matches';
 
-export default class MatchesController {
+export default class MatchController {
   static async getAll(req: Request, res: Response) {
     const { inProgress } = req.query
     const matches = MatchService.getAll(inProgress as string);
