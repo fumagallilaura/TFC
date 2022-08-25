@@ -1,4 +1,3 @@
-import Team from '../database/models/Teams';
 // https://github.com/sequelize/sequelize-typescript/issues/618
 import { FindOptions } from 'sequelize';
 import Teams from '../database/models/Teams';
