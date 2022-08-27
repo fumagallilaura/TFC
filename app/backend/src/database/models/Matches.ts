@@ -3,15 +3,15 @@ import db from '.';
 import Teams from './Teams';
 
 class Matches extends Model {
-  public homeTeam: number;
+  public homeTeam!: number;
 
-  public homeTeamGoals: number;
+  public homeTeamGoals!: number;
 
-  public awayTeam: number;
+  public awayTeam!: number;
 
-  public awayTeamGoals: number;
+  public awayTeamGoals!: number;
 
-  public inProgress: boolean;
+  public inProgress!: boolean;
 }
 Matches.init({
   homeTeam: DataTypes.NUMBER,
@@ -25,9 +25,6 @@ Matches.init({
   underscored: true,
   timestamps: false,
 });
-
-Teams.hasMany(Matches, { foreignKey: 'homeTeam' });
-Teams.hasMany(Matches, { foreignKey: 'awayTeam' });
 
 Matches.belongsTo(Teams, { foreignKey: 'homeTeam', targetKey: 'id', as: 'teamHome' });
 Matches.belongsTo(Teams, { foreignKey: 'awayTeam', targetKey: 'id', as: 'teamAway' });

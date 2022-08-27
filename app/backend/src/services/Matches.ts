@@ -11,15 +11,21 @@ export default class MatchService {
       { model: Teams, as: 'teamHome', attributes: { exclude: ['id'] } },
       { model: Teams, as: 'teamAway', attributes: { exclude: ['id'] } },
     ]};
-    if (inProgress === 'true') {
-      findOptions = {
-        where: { inProgress: true }, ...findOptions };
+    let matches;
+    if (inProgress) {
+      if (inProgress === 'true') {
+        findOptions = {
+          where: { inProgress: true }, ...findOptions };
+      }
+      if (inProgress === 'false') {
+        findOptions = {
+          where: { inProgress: false }, ...findOptions };
+      }
+      matches = await Matches.findAll(findOptions);
+    } else {
+      matches = await Matches.findAll(findOptions);
     }
-    if (inProgress === 'false') {
-      findOptions = {
-        where: { inProgress: false }, ...findOptions };
-    }
-    const matches = await Matches.findAll(findOptions);
+
     return matches;
   }
 }
