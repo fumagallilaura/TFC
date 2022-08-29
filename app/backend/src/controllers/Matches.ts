@@ -31,12 +31,24 @@ export default class MatchController {
       homeTeam,
       awayTeam,
       homeTeamGoals,
-      awayTeamGoals } = req.body;
+      awayTeamGoals,
+      inProgress } = req.body;
+    if (homeTeam === awayTeam) {
+      return res.status(401).json({ message: 'It is not possible to create a match with two equal teams' });
+    }
+
+    const getAwayTeam = await Teams.findByPk(awayTeam);
+    const getHomeTeam = await Teams.findByPk(homeTeam);
+
+    if (!getHomeTeam || !getAwayTeam) {
+      return res.status(404).json({ message: 'There is no team with such id!' });
+    }
+
     const team = await Matches.create({ homeTeam,
       awayTeam,
       homeTeamGoals,
       awayTeamGoals,
-      inProgress: true });
+      inProgress });
     return res.status(201).json(team);
   }
 }
