@@ -18,7 +18,7 @@ class Autentication {
   public middleware(req: Request, res: Response, next: NextFunction) {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.status(400).json({ message: 'no auth' });
+    if (!authorization) return res.status(400).json({ message: 'Token must be a valid token' });
     const token = this.verify(authorization);
     req.body = { userId: token.id, ...req.body };
     next();
