@@ -21,7 +21,7 @@ export default class MatchController {
     const teams = await Teams.findAll({ where: {
       id: [homeTeam, awayTeam],
     } });
-    if (teams.length < 2) {
+    if (teams.length < 1) {
       return res.status(404).json({ message: 'There is no team with such id!' });
     }
     next();
