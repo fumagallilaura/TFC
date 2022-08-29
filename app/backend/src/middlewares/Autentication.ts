@@ -20,8 +20,8 @@ class Autentication {
 
     if (!authorization) return res.status(400).json({ message: 'no auth' });
     console.log(this)
-    const { id } = this.verify(authorization);
-    req.body = { userId: id, ...req.body };
+    const token = this.verify(authorization);
+    req.body = { userId: token.id, ...req.body };
     next();
   }
 }
