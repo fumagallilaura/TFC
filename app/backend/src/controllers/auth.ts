@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import Authentication from '../middlewares/Autentication'
-const auth = (req: Request, res: Response, next: NextFunction) => {
+const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    Authentication.middleware(req, res, next);
+    await Authentication.middleware(req, res, next);
     next()
   } catch(error) {
     console.log(error);
