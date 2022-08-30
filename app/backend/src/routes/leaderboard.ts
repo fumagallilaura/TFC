@@ -1,11 +1,7 @@
 import { Router } from 'express';
-import auth from '../controllers/auth';
-import Leaderboard from '../controllers/Matches';
+import Leaderboard from '../controllers/Leaderboard';
 const router = Router();
 
-router.get('/', Leaderboard.getAll);
-router.post('/', auth, Leaderboard.teamsValidation, Leaderboard.create);
-router.patch('/:id/finish', auth, Leaderboard.finish);
-router.patch('/:id', auth, Leaderboard.update);
+router.get('/leaderboard/home', Leaderboard.getHome);
 
 export default router;
