@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import Leaderboard from '../controllers/Leaderboard';
+import Leaderboard from '../controllers/Leaderboards';
 const router = Router();
 
 router.get('/leaderboard/home', Leaderboard.getHome);
