@@ -51,4 +51,21 @@ export default class MatchController {
       inProgress });
     return res.status(201).json(team);
   }
+  static async finish(req: Request, res: Response) {
+    const { id } = req.params;
+    await Matches.update({
+      inProgress: false }, { where: { id } });
+    return res.status(200).json({ message: 'Finished' });
+  }
+  static async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const {
+      homeTeamGoals,
+      awayTeamGoals } = req.body;
+
+    await Matches.update({
+      homeTeamGoals,
+      awayTeamGoals }, { where: { id } });
+      return res.status(200).json({ message: 'Finished' });
+  }
 }
