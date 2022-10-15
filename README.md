@@ -487,4 +487,4 @@ Esse projeto é composto de 4 seções principais:
 
 </details>
 
->> Obs: Projeto ainda em desenvolvimento. Serão feitos mais testes e uma rota de leaderboard.
+> Obs: Projeto ainda em desenvolvimento. Serão feitos mais testes e uma rota de leaderboard.
